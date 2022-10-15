@@ -10,6 +10,7 @@
 	fill: #fdba74;
 	transition-duration: 100ms;
 	cursor: pointer;
+	outline: 1px solid white;
 }
 
 .bar:hover {
