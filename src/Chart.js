@@ -1,9 +1,8 @@
 import Svg from "./Svg";
-import Utility from "./Utility";
 import Bar from "./Bar";
 
 export class Chart extends Svg {
-	constructor(svg) {
+	constructor(svg, data) {
 		super(svg);
 
 		this.padding = {
@@ -12,13 +11,16 @@ export class Chart extends Svg {
 		};
 
 		this.svg = svg;
+		this.data = data;
 	}
 
 	init() {
 		this.draw();
 
-		const data = Utility.generateRandomData(50, 10, 100);
+		this.drawBar(this.data);
+	}
 
+	drawBar(data) {
 		const barWidth = (this.width - this.padding.x * 2) / data.length;
 		const barHeight = this.height - this.padding.y * 2;
 
@@ -34,6 +36,16 @@ export class Chart extends Svg {
 
 			bar.draw();
 		}
+	}
+
+	update(data) {
+		this.clear();
+		this.draw();
+		this.drawBar(data);
+	}
+
+	clear() {
+		this.svg.innerHTML = "";
 	}
 }
 
