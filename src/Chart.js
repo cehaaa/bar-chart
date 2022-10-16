@@ -15,18 +15,24 @@ export class Chart extends Svg {
 	}
 
 	init() {
-		this.draw();
-
-		this.drawBar(this.data);
+		this.draw(this.data);
 	}
 
-	drawBar(data) {
-		const barWidth = (this.width - this.padding.x * 2) / data.length;
+	draw(data) {
+		super.draw();
+
+		const gutter = 5;
+
+		const barWidth = Math.max(
+			(this.width - (data.length - 1) * gutter - this.padding.x * 2) /
+				data.length,
+			2
+		);
 		const barHeight = this.height - this.padding.y * 2;
 
 		for (let i = 0; i < data.length; i++) {
 			const bar = new Bar({
-				x: this.padding.x + i * barWidth,
+				x: this.padding.x + i * barWidth + i * gutter,
 				y: this.height - this.padding.y - (barHeight * data[i]) / 100,
 				width: barWidth,
 				height: (barHeight * data[i]) / 100,
@@ -39,9 +45,10 @@ export class Chart extends Svg {
 	}
 
 	update(data) {
+		this.data = data;
+
 		this.clear();
-		this.draw();
-		this.drawBar(data);
+		this.init();
 	}
 
 	clear() {

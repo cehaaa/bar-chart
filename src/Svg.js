@@ -2,8 +2,10 @@ export class Svg {
 	constructor(svg) {
 		this.svg = svg;
 
-		this.width = this.svg.getBoundingClientRect().width;
-		this.height = this.svg.getBoundingClientRect().height;
+		const { width, height } = this.svg.getBoundingClientRect();
+
+		this.width = width;
+		this.height = height;
 	}
 
 	draw() {
