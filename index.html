@@ -10,13 +10,23 @@
 		<div id="app">
 			<div class="container">
 				<div>
-					<div>
-						<svg id="svg" width="600" height="400"></svg>
+					<div class="board">
+						<svg id="svg" width="900" height="500"></svg>
+						<div class="popover">
+							<div class="popover__title"></div>
+							<div class="popover__body">
+								<div class="popover__indicator"></div>
+								<div class="popover__text">
+									My first dataset: <span class="popover__value"></span>
+								</div>
+							</div>
+						</div>
 					</div>
-					<input type="range" maxlength="200" value="3" id="data-length" />
+
+					<button id="random-button">Random</button>
 				</div>
 			</div>
 		</div>
-		<script type="module" src="/main.js"></script>
+		<script type="module" src="src/main.js"></script>
 	</body>
 </html>

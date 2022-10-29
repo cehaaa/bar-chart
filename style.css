@@ -1,3 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Overpass", sans-serif;
+}
+
+:root {
+	--slate: #e2e8f0;
+	--gray: #9ca3af;
+}
+
+.board {
+	background: white;
+}
+
 .container {
 	width: 100%;
 	height: 100vh;
@@ -7,11 +25,79 @@
 }
 
 .bar {
-	fill: #fdba74;
+	stroke-width: 2;
+	fill-opacity: 0.3;
 	transition-duration: 100ms;
 	cursor: pointer;
+	position: relative;
 }
 
 .bar:hover {
-	fill: #f97316;
+	fill-opacity: 0.5;
+}
+
+.line {
+	stroke: var(--slate);
+	/* stroke: black; */
+	stroke-width: 2;
+}
+
+.animate {
+	animation: animate 1s ease-in-out;
+}
+
+@keyframes animate {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.board {
+	position: relative;
+}
+
+.label {
+	font-size: 0.8rem;
+	fill: var(--gray);
+}
+
+.popover {
+	position: absolute;
+	background: rgba(0, 0, 0, 0.8);
+	padding: 4px;
+	opacity: 0;
+	transition-duration: 200ms;
+	pointer-events: none;
+	color: white;
+	font-size: small;
+	transform: scale(0);
+}
+
+.popover.popover--show {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.popover .popover__title {
+	font-weight: bold;
+}
+
+.popover .popover__body {
+	margin-top: 4px;
+	display: flex;
+	align-items: center;
+}
+
+.popover__body .popover__indicator {
+	width: 15px;
+	height: 15px;
+	border: 1px solid white;
+}
+
+.popover__body .popover__text {
+	margin-top: 2px;
+	margin-left: 5px;
 }
