@@ -5,17 +5,27 @@
 		<link rel="icon" type="image/svg+xml" href="/bar-chart/vite.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Vite App</title>
-		<script type="module" crossorigin src="/bar-chart/assets/index.7a1e7dca.js"></script>
-		<link rel="stylesheet" href="/bar-chart/assets/index.3af92ca4.css">
+		<script type="module" crossorigin src="/bar-chart/assets/index.3249cf3e.js"></script>
+		<link rel="stylesheet" href="/bar-chart/assets/index.81e15ca2.css">
 	</head>
 	<body>
 		<div id="app">
 			<div class="container">
 				<div>
-					<div>
-						<svg id="svg" width="600" height="400"></svg>
+					<div class="board">
+						<svg id="svg" width="900" height="500"></svg>
+						<div class="popover">
+							<div class="popover__title"></div>
+							<div class="popover__body">
+								<div class="popover__indicator"></div>
+								<div class="popover__text">
+									My first dataset: <span class="popover__value"></span>
+								</div>
+							</div>
+						</div>
 					</div>
-					<input type="range" maxlength="100" value="3" id="data-length" />
+
+					<button id="random-button">Random</button>
 				</div>
 			</div>
 		</div>
